@@ -1,0 +1,11 @@
+---
+- hosts: all
+  sudo: yes
+  tasks:
+    - name: install apache2 webserver on client1
+      apt: name=apache2 update_cache=yes state=latest
+
+    - name: replace default index page with hello world
+      copy: src=index.html dest=/var/www/html/index.html
+
+
